@@ -1,0 +1,50 @@
+{
+  "name": "antigravity-acp",
+  "version": "0.1.0",
+  "description": "ACP server for Antigravity API - access Claude/Gemini/GPT-OSS via Agent Communication Protocol",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "antigravity-acp": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "login": "node dist/cli.js login",
+    "lint": "eslint src/",
+    "test": "vitest",
+    "prepublishOnly": "npm run build",
+    "build:binary": "bun build src/cli.ts --compile --outfile antigravity-acp",
+    "build:darwin-arm64": "bun build src/cli.ts --compile --target=bun-darwin-arm64 --outfile bin/antigravity-acp-darwin-arm64",
+    "build:darwin-x64": "bun build src/cli.ts --compile --target=bun-darwin-x64 --outfile bin/antigravity-acp-darwin-x64",
+    "build:linux-x64": "bun build src/cli.ts --compile --target=bun-linux-x64 --outfile bin/antigravity-acp-linux-x64",
+    "build:linux-arm64": "bun build src/cli.ts --compile --target=bun-linux-arm64 --outfile bin/antigravity-acp-linux-arm64",
+    "build:windows-x64": "bun build src/cli.ts --compile --target=bun-windows-x64 --outfile bin/antigravity-acp-windows-x64.exe",
+    "build:all": "npm run build:darwin-arm64 && npm run build:darwin-x64 && npm run build:linux-x64 && npm run build:linux-arm64 && npm run build:windows-x64"
+  },
+  "keywords": [
+    "acp",
+    "agent-communication-protocol",
+    "antigravity",
+    "claude",
+    "gemini",
+    "llm",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0",
+    "eslint": "^9.0.0"
+  }
+}
