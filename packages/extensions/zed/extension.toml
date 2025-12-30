@@ -1,0 +1,26 @@
+id = "antigravity-acp"
+name = "Antigravity ACP"
+description = "Antigravity AI agent server providing access to Claude, Gemini, and GPT models via Google OAuth"
+version = "0.1.1"
+schema_version = 1
+authors = ["tctinh"]
+repository = "https://github.com/tctinh/antigravity-acp"
+
+[agent_servers.antigravity]
+name = "Antigravity"
+
+[agent_servers.antigravity.targets.windows-x86_64]
+archive = "http://localhost:8000/antigravity-windows-x64.zip"
+cmd = "./antigravity-acp-windows-x64.exe"
+
+[agent_servers.antigravity.targets.linux-x86_64]
+archive = "http://localhost:8000/antigravity-linux-x64.tar.gz"
+cmd = "./antigravity-acp"
+
+[agent_servers.antigravity.targets.darwin-aarch64]
+archive = "http://localhost:8000/antigravity-darwin-arm64.tar.gz"
+cmd = "./antigravity-acp"
+
+[agent_servers.antigravity.targets.darwin-x86_64]
+archive = "http://localhost:8000/antigravity-darwin-x64.tar.gz"
+cmd = "./antigravity-acp"
